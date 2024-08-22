@@ -29,7 +29,7 @@ public class Bishop extends Piece {
             int colDir = colDiff > 0 ? 1 : -1;
             int steps = Math.abs(rowDiff);
 
-            for (int i = 1; i < steps; i++) {
+            for (int i = 1; i <= steps; i++) {
                 if (board[i * rowDir + posRow][i * colDir + posCol] != null) {
                     return false;
                 }
