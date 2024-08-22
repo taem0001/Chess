@@ -65,19 +65,28 @@ public class ChessPanelGUI extends JPanel {
 
     private void checkGameState() {
         PieceColor currentPieceColor = game.getCurrentPieceColor();
+        PieceColor otherPieceColor = currentPieceColor == PieceColor.WHITE ? PieceColor.BLACK : PieceColor.WHITE;
 
-        boolean inCheck = game.isInCheck(currentPieceColor);
+        boolean inCurrentCheck = game.isInCheck(currentPieceColor);
+        boolean inOtherCheck = game.isInCheck(otherPieceColor);
 
-        if (inCheck) {
+        if (inCurrentCheck) {
             System.out.println(currentPieceColor + " is in check!");
+        } else if (inOtherCheck) {
+            System.out.println(otherPieceColor + " is in check!");
         }
     }
 
     private void checkGameOver() {
         PieceColor currentPieceColor = game.getCurrentPieceColor();
+        PieceColor otherPieceColor = currentPieceColor == PieceColor.WHITE ? PieceColor.BLACK : PieceColor.WHITE;
+
 
         if (game.isCheckmate(currentPieceColor)) {
             System.out.println(currentPieceColor + " is checkmated!");
+            game.resetGame();
+        } else if (game.isCheckmate(otherPieceColor)) {
+            System.out.println(otherPieceColor + " is checkmated!");
             game.resetGame();
         }
     }
