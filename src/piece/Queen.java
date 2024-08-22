@@ -42,12 +42,12 @@ public class Queen extends Piece {
                     return false;
                 }
             }
-        } else if (rowDiff == colDiff) { // Check diagonal movement
+        } else if (Math.abs(rowDiff) == Math.abs(colDiff)) { // Check diagonal movement
             int rowDir = rowDiff > 0 ? 1 : -1;
             int colDir = colDiff > 0 ? 1 : -1;
             int steps = Math.abs(rowDiff);
 
-            for (int i = 1; i <= steps; i++) {
+            for (int i = 1; i < steps; i++) {
                 if (board[i * rowDir + posRow][i * colDir + posCol] != null) {
                     return false;
                 }

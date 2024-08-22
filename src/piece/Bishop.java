@@ -24,12 +24,12 @@ public class Bishop extends Piece {
         int rowDiff = nPosRow - posRow;
         int colDiff = nPosCol - posCol;
 
-        if (rowDiff == colDiff) {
+        if (Math.abs(rowDiff) == Math.abs(colDiff)) {
             int rowDir = rowDiff > 0 ? 1 : -1;
             int colDir = colDiff > 0 ? 1 : -1;
             int steps = Math.abs(rowDiff);
 
-            for (int i = 1; i <= steps; i++) {
+            for (int i = 1; i < steps; i++) {
                 if (board[i * rowDir + posRow][i * colDir + posCol] != null) {
                     return false;
                 }

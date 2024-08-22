@@ -10,6 +10,7 @@ public class AppGUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().add(panel);
         frame.pack();
+        frame.setResizable(false);
         frame.setLocationRelativeTo(panel);
         frame.setVisible(true);
     }
